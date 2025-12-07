@@ -233,25 +233,12 @@ Postman
 **Framework:** Spring Boot
 
 **Technologies:** MySql, Javax Servlet, Tomcat, Spring Security Crypto, Json Web Token, Interceptors
-  
-## Related projects
-
-You can take a look at the frontends for my React Redux Online Banking App and Android Java Online Banking App projects for this application.
-
-React Redux Online Banking App Project: [Java Android]( https://github.com/Berko01/Android-Online-Banking-App-With-Java-Spring)
-
-React Redux Online Banking App Project: [React Redux]( https://github.com/Berko01/Advanced-Full-Stack-Project-With-Java-Spring-Boot-And-React-Redux-Online-Banking/tree/master/demo-bank-redux)
 
 
-
-  
 ## Extracted Lessons
 
 Java Spring usage, Enterprise architecture, Database architecture, Session architecture, JWT architecture, Interceptor usage, Exception Handling mechanism, Project configuration, and more.
 
-  
-## Programmers
-
-- [@Berko01](https://github.com/Berko01) design and development.
 
   
+
