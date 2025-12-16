@@ -2,7 +2,7 @@
 
 # 🏦 Online Banking REST API (Spring Boot)
 
-A backend REST API for a simple online banking system built with **Java Spring Boot**, designed to handle user authentication, bank accounts, transactions, and payments. The API uses **JWT tokens** for secure authentication and supports common banking workflows like deposits, withdrawals, transfers, and viewing account history. ([GitHub][1])
+A backend REST API for a simple online banking system built with **Java Spring Boot**, designed to handle user authentication, bank accounts, transactions, and payments. The API uses **JWT tokens** for secure authentication and supports common banking workflows like deposits, withdrawals, transfers, and viewing account history.
 <img width="1904" height="958" alt="loginPage" src="https://github.com/user-attachments/assets/8b354a6d-cc87-45b0-8adc-891ca528d4ab" />
 <img width="1900" height="931" alt="ProjecPage1" src="https://github.com/user-attachments/assets/7eefd6f8-7ed4-4f1c-80f9-7e622065b4a9" />
 <img width="1823" height="895" alt="ProjectPage2" src="https://github.com/user-attachments/assets/5f953abe-461a-46ba-9b63-d99e9dca739c" />
@@ -21,7 +21,7 @@ A backend REST API for a simple online banking system built with **Java Spring B
 ✔ View account balances and histories
 ✔ Clean structure following **SOLID principles** and design patterns
 ✔ Tested via **Postman**
-✔ MySQL as the database backend ([GitHub][1])
+✔ MySQL as the database backend 
 
 ---
 
@@ -33,7 +33,7 @@ A backend REST API for a simple online banking system built with **Java Spring B
 * **MySQL**
 * **Postman (for testing)**
 * **Maven (build tool)**
-* **Dockerfile included** ([GitHub][1])
+* **Dockerfile included** 
 
 ---
 
@@ -90,10 +90,6 @@ A backend REST API for a simple online banking system built with **Java Spring B
    mvn spring-boot:run
    ```
 
-4. **Test with Postman**
-
-   * Import the Postman collection (if included)
-   * Test signup, login, then use the returned JWT token to access protected routes
 
 ---
 
@@ -102,4 +98,5 @@ A backend REST API for a simple online banking system built with **Java Spring B
 * The project strictly follows **SOLID principles** and common design patterns for maintainability. 
 * Uses **JWT + Interceptors** for secure session handling. 
 ---
+
 
