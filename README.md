@@ -1,244 +1,105 @@
 
-# Spring Boot Online Banking Rest API
 
-This project is a Java Spring Boot Rest API project. MySql is used as the database. JWT, sessions, and interceptors are employed for authentication and authorization. Tests have been conducted using Postman. Users can register and log in to the system. They can open new bank accounts, deposit and withdraw money, transfer money between accounts, and make payments. The project is developed in compliance with code refactoring, design patterns, and SOLID principles
+# 🏦 Online Banking REST API (Spring Boot)
 
-## Features
+A backend REST API for a simple online banking system built with **Java Spring Boot**, designed to handle user authentication, bank accounts, transactions, and payments. The API uses **JWT tokens** for secure authentication and supports common banking workflows like deposits, withdrawals, transfers, and viewing account history. ([GitHub][1])
+<img width="1904" height="958" alt="loginPage" src="https://github.com/user-attachments/assets/8b354a6d-cc87-45b0-8adc-891ca528d4ab" />
+<img width="1900" height="931" alt="ProjecPage1" src="https://github.com/user-attachments/assets/7eefd6f8-7ed4-4f1c-80f9-7e622065b4a9" />
+<img width="1823" height="895" alt="ProjectPage2" src="https://github.com/user-attachments/assets/5f953abe-461a-46ba-9b63-d99e9dca739c" />
+<img width="1902" height="843" alt="ProjectPage3" src="https://github.com/user-attachments/assets/7324d943-464f-457d-966d-fe884386bf54" />
+<img width="1894" height="923" alt="ProjectPage5" src="https://github.com/user-attachments/assets/4b671f92-5447-4f39-a7e9-ec59f4abff64" />
 
-- It includes Authentication and Authorization mechanisms. 
-- Email control and verification mechanisms are also available.
-- Rest API
-- It adheres to SOLID principles and design patterns.
-- Tüm platformlara destek
+---
 
-  
-## API Usage
+## 🚀 Features
 
-#### Dashboard Get Accounts
+✔ User registration and login
+✔ JWT-based authentication & authorization
+✔ Create and manage bank accounts
+✔ Perform transactions (deposit, withdraw, transfer)
+✔ Make payments
+✔ View account balances and histories
+✔ Clean structure following **SOLID principles** and design patterns
+✔ Tested via **Postman**
+✔ MySQL as the database backend ([GitHub][1])
 
-```http
-  GET /app/dashboard
-```
+---
 
-| Headers | Tip     | Açıklama                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `Bearer:{{access_token}}` | **Required** . Your API key. |
+## 📦 Technologies
 
-#### Get Payment History
+* **Java 17+**
+* **Spring Boot**
+* **Spring Security (JWT)**
+* **MySQL**
+* **Postman (for testing)**
+* **Maven (build tool)**
+* **Dockerfile included** ([GitHub][1])
 
-```http
-  GET /app/payment_history
-```
+---
 
-| Headers | Tip     | Açıklama                       |
-| :-------- | :------- | :-------------------------------- |
-| `Authorization` | `Bearer:{{access_token}}` | **Required** . Your API key. |
+## 📌 API Endpoints
 
-#### Get Transaction History
+### 🔐 Authentication
 
+| Endpoint    | Method | Description                   |
+| ----------- | ------ | ----------------------------- |
+| `/register` | POST   | Register a new user           |
+| `/login`    | POST   | User login; returns JWT token |
 
-```http
-  GET /app/transaction_history
-```
+---
 
-| Headers | Tip     | Açıklama                       |
-| :-------- | :------- | :-------------------------------- |
-| `Authorization` | `Bearer:{{access_token}}` | **Required** . Your API key. |
+### 🏦 Accounts
 
-#### Post Create Account
+| Endpoint                  | Method | Description                    |
+| ------------------------- | ------ | ------------------------------ |
+| `/app/dashboard`          | GET    | View all accounts and balances |
+| `/account/create_account` | POST   | Open a new bank account        |
 
+---
 
-```http
-  POST /account/create_account
-```
+### 💸 Transactions
 
-| Body | Type    | Description                      |
-| :-------- | :------- | :-------------------------------- |
-| `account_name` | `string` | **Required**  |
-| `account_type` | `string` | **Required**  |
+| Endpoint                   | Method | Description               |
+| -------------------------- | ------ | ------------------------- |
+| `/transact/deposit`        | POST   | Deposit funds             |
+| `/transact/withdraw`       | POST   | Withdraw funds            |
+| `/transact/transfer`       | POST   | Transfer between accounts |
+| `/app/payment_history`     | GET    | View payment history      |
+| `/app/transaction_history` | GET    | View transaction history  |
 
-| Headers | Type     | Description                    |
-| :-------- | :------- | :-------------------------------- |
-| `Authorization` | `access_token` | **Required** . Your API key. |
+---
 
-#### Post Deposit Transaction
+## 🧪 How to Use (Quickstart)
 
+1. **Clone the repo**
 
-```http
-  POST /transact/deposit
-```
+   ```bash
+   git clone https://github.com/AnnaGH-hub/Project-S5.git
+   cd Project-S5
+   ```
 
-| Body | Type    | Description                      |
-| :-------- | :------- | :-------------------------------- |
-| `deposit_amount` | `string` | **Required**  |
-| `account_id` | `int` | **Required**  |
+2. **Configure the database**
 
-| Headers | Type     | Description                    |
-| :-------- | :------- | :-------------------------------- |
-| `Authorization` | `access_token` | **Required** . Your API key. |
-#### POST Transfer Transaction
+   * Create a MySQL database
+   * Update `application.properties` with your DB credentials
 
+3. **Build and run**
 
-```http
-  POST /transact/transfer
-```
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   ```
 
-| Body | Type    | Description                      |
-| :-------- | :------- | :-------------------------------- |
-| `sourceAccount` | `string` |**Required**  |
-| `targetAccount` | `string` |**Required**  |
-| `amount` | `string` | **Required** |
+4. **Test with Postman**
 
-| Headers | Type     | Description                    |
-| :-------- | :------- | :-------------------------------- |
-| `Authorization` | `access_token` | **Required** . Your API key. |
+   * Import the Postman collection (if included)
+   * Test signup, login, then use the returned JWT token to access protected routes
 
-#### Post Withdraw Transaction
+---
 
-```http
-  POST /transact/withdraw
-```
-| Headers | Type     | Description                    |
-| :-------- | :------- | :-------------------------------- |
-| `Authorization` | `access_token` | **Required** . Your API key. |
+## 🧠 Notes & Design
 
-| Body | Type    | Description                      |
-| :-------- | :------- | :-------------------------------- |
-| `withdrawal_amount` | `string` | **Required** |
-| `account_id` | `string` |**Required**  |
-
-
-
-#### Post Payment Transaction
-
-```http
-  POST /transact/payment
-```
-| Headers | Type     | Description                    |
-| :-------- | :------- | :-------------------------------- |
-| `Authorization` | `access_token` | **Required**. Your API key.. |
-
-| Body | Type    | Description                      |
-| :-------- | :------- | :-------------------------------- |
-| `beneficiary` | `string` | **Required**  |
-| `account_number` | `string` | **Required**  |
-| `account_id` | `string` | **Required**   |
-| `reference` | `string` | **Required**  |
-| `payment_amount` | `string` | **Required** |
-
-
-#### Get Verify Account
-
-
-```http
-  GET /verify?token={token}&code={code}
-```
-
-| Query Params | Value    | Description                    |
-| :-------- | :------- | :-------------------------------- |
-| `token` | `token` | **Required** . Token from your email |
-| `code` | `code` | **Required** . Code from your email |
-
-
-#### Post Register User
-
-
-```http
-  POST register?confirm_password=1234
-```
-
-| Body | Type    | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `first_name` | `string` |  **Required**. User email. |
-| `last_name` | `string` |  **Required**. User email. |
-| `email` | `string` |  **Required**. User email. |
-| `password` | `string` |  **Required**. User password. |
-
-
-#### Post Register Login
-
-
-```http
-  POST /login
-```
-
-| Body | Type    | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `email` | `string` | **Required** . User email. |
-| `password` | `string` | **Required** . User password. |
-
-
-
-
-#### Get Transaction History
-
-
-```http
-  GET /logout
-```
-
-| Headers | Type     | Description                    |
-| :-------- | :------- | :-------------------------------- |
-| `Authorization` | `access_token` | **Required**. Your API key. |
-
-## Email Configurations
-
-
-I used ThunderBird for email configurations. I created email addresses on Local Host through Hmail Server.
-
-![Uygulama Ekran Görüntüsü](Screenshot_2.png)
-
- I saved these email addresses using ThunderBird. That's it.
-
-![Uygulama Ekran Görüntüsü](Screenshot_3.png)
-
-
-## Database Structure
-
-![Uygulama Ekran Görüntüsü](databasestructure.png)
-
-## Distribution
-
-1- Clone the project to your local machine.
-2- Build and run the application using your preferred Java Development environment.
-
-Start for Project
-
-```bash
-  maven build
-```
-
-```bash
-  maven run
-```
-
-  
-## application.properties
-
-To run the project, update the following information in your application.properties file.
-
-`spring.datasource.url`
-
-`spring.datasource.username`
-
-`spring.datasource.password`
-  
-## Tests
-
-Postman
-
-![Uygulama Ekran Görüntüsü](Screenshot_1.png)
-## Technologies
-
-**Framework:** Spring Boot
-
-**Technologies:** MySql, Javax Servlet, Tomcat, Spring Security Crypto, Json Web Token, Interceptors
-
-
-## Extracted Lessons
-
-Java Spring usage, Enterprise architecture, Database architecture, Session architecture, JWT architecture, Interceptor usage, Exception Handling mechanism, Project configuration, and more.
-
-
-  
+* The project strictly follows **SOLID principles** and common design patterns for maintainability. 
+* Uses **JWT + Interceptors** for secure session handling. 
+---
 
